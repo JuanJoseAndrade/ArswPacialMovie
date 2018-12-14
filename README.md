@@ -1,5 +1,5 @@
 
-### [Heroku](https://bandboom.herokuapp.com)  
+### [Heroku](https://arswmovies.herokuapp.com/)  
 ### Arquitecturas de Software
 
 La aquitectura de esta plataforma consta de un cliente web accedido a traves del servidor Heroku, el cual hace peticiones Get a un api.
