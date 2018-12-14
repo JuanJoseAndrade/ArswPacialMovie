@@ -11,6 +11,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  *
  * @author JuanJoAndrade
  */
-public interface EmpresaRepository extends MongoRepository<Empresa, String> {
-    public Empresa findByUrl(String url);
+public interface MovieRepository extends MongoRepository<Movie, String> {
+    public Movie findByUrl(String url);
 }

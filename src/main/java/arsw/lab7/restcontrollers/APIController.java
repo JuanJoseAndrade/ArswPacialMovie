@@ -18,21 +18,13 @@ package arsw.lab7.restcontrollers;
 
 
 import arsw.lab7.services.ApiService;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -41,58 +33,23 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping(value = "/apialpha") 
+@RequestMapping(value = "/movie") 
  public class APIController {
     
         @Autowired
         @Qualifier("Stub")
         ApiService apiservice;
         
-        @GetMapping("/{name}")
- 	public ResponseEntity<?> GetJsonAlpha(@PathVariable String name){
+        @GetMapping("/{title}/{year}")
+ 	public ResponseEntity<?> GetMovieByTitleAndYear(@PathVariable String title, @PathVariable String year){
  		try {
  			//obtener datos que se enviarán a través del API
- 			return new ResponseEntity<>(apiservice.getAllJSON(name),HttpStatus.ACCEPTED);
+ 			return new ResponseEntity<>(apiservice.getMovieByTitleAndYear(title,year),HttpStatus.ACCEPTED);
  		} catch (Exception ex) {
  			return new ResponseEntity<>("Error 404"+ex,HttpStatus.NOT_FOUND);
  		}  
  	}
-        @GetMapping("/{name}/daily")
- 	public ResponseEntity<?> GetJsonAlphaDaily(@PathVariable String name){
- 		try {
- 			//obtener datos que se enviarán a través del API
- 			return new ResponseEntity<>(apiservice.getJSONDaily(name),HttpStatus.ACCEPTED);
- 		} catch (Exception ex) {
- 			return new ResponseEntity<>("Error 404"+ex,HttpStatus.NOT_FOUND);
- 		}  
- 	}
-        @GetMapping("/{name}/intraday")
- 	public ResponseEntity<?> GetJsonIntraDay(@PathVariable String name){
- 		try {
- 			//obtener datos que se enviarán a través del API
- 			return new ResponseEntity<>(apiservice.getJSONIntraDay(name),HttpStatus.ACCEPTED);
- 		} catch (Exception ex) {
- 			return new ResponseEntity<>("Error 404"+ex,HttpStatus.NOT_FOUND);
- 		}  
- 	}
-        @GetMapping("/{name}/monthly")
- 	public ResponseEntity<?> GetJsonMonthly(@PathVariable String name){
- 		try {
- 			//obtener datos que se enviarán a través del API
- 			return new ResponseEntity<>(apiservice.getJSONMonthly(name),HttpStatus.ACCEPTED);
- 		} catch (Exception ex) {
- 			return new ResponseEntity<>("Error 404"+ex,HttpStatus.NOT_FOUND);
- 		}  
- 	}
-        @GetMapping("/{name}/weekly")
-        public ResponseEntity<?> GetJsonWeekly(@PathVariable String name){
- 		try {
- 			//obtener datos que se enviarán a través del API
- 			return new ResponseEntity<>(apiservice.getJSONWeekly(name),HttpStatus.ACCEPTED);
- 		} catch (Exception ex) {
- 			return new ResponseEntity<>("Error 404"+ex,HttpStatus.NOT_FOUND);
- 		}  
- 	}
+
         
 }       
  

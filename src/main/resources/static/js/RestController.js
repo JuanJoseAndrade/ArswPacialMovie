@@ -1,18 +1,20 @@
 var RestControllerModule = (function () {
 //------------------Metodos Get------
-  var getEmpresa = function (tipo,callback) {
+
+  var getPelicula = function(title,year, callback){			
+	axios.get('/movie/'+title+"/"+year)		
+		.then(function(response){
+			callback.onSuccess(response.data);			
+		})
+		.catch(function(error){
+			callback.onFailed(error);
+		});
+	};
 	
-    axios.get('/apialpha/'+tipo)
-    .then(function (response) {
-     return callback.onSuccess(response.data);
-    })
-    .catch(function (error) {
-      return callback.onFailed(error);
-    });
-  };
-  
+	
   return {
-	getEmpresa: getEmpresa
+	getPelicula: getPelicula
+
 
   };
 

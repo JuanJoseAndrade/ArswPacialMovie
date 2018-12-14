@@ -11,13 +11,13 @@ import org.springframework.data.annotation.Id;
  *
  * @author JuanJoAndrade
  */
-public class Empresa {
+public class Movie {
     @Id
     public String id;
     public String url;
     public String jsonApiAlpha;
-    public Empresa(){}
-    public Empresa(String url, String jsonApiAlpha){
+    public Movie(){}
+    public Movie(String url, String jsonApiAlpha){
         this.url=url;
         this.jsonApiAlpha=jsonApiAlpha;
     }

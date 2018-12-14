@@ -18,10 +18,10 @@ import java.util.ArrayList;
  */
 public class ApiAlpha {
     private static final String USER_AGENT = "Mozilla/5.0";
-    private static String GET_URL = "https://www.alphavantage.co/query?function=";
+    private static String GET_URL = "http://www.omdbapi.com/?t=";
     
-    public static String getJson(String period,String code) throws IOException {
-        String url=GET_URL+period+"&symbol="+code+"&interval=5min&apikey=K0BLCZEKS9DFRFGN";
+    public static String getJson(String title,String year) throws IOException {
+        String url=GET_URL+title+"&y="+year+"&apikey=bbf65b67";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");

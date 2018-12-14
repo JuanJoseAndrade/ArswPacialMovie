@@ -16,10 +16,8 @@ import java.util.Set;
  */
 public interface ApiService {
     
-    List getAllJSON(String code) throws IOException;
-    String getJSONDaily(String code) throws IOException;
-    String getJSONWeekly(String code) throws IOException;
-    String getJSONMonthly(String code) throws IOException;
-    String getJSONIntraDay(String code) throws IOException;
+
+    String getMovieByTitleAndYear(String title, String year) throws IOException;
+
     
 }
